@@ -2,7 +2,7 @@
   "name": "sudoku",
   "version": "1.0.0",
   "description": "Sudoku Game",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/syedjafri/Sudoku.git"
   },
-  "author": "",
+  "author": "Syed Jafri",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/syedjafri/Sudoku/issues"
   },
-  "homepage": "https://github.com/syedjafri/Sudoku#readme"
+  "homepage": "https://github.com/syedjafri/Sudoku#readme",
+  "dependencies": {
+    "express": "~3.4.8",
+    "express-partials": "~0.2.0"
+  }
 }
