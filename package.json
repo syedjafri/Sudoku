@@ -1,0 +1,13 @@
+{
+  "name": "Syed_Sudoku",
+  "version": "1.0.0",
+  "description": "Sudoku Even Odd",
+  "repository": "",
+  "license": "Proprietary",
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies": {
+
+  }
+}
