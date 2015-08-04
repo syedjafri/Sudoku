@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Sudoku - Even/Odd 
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Play a new version of the classic game of Sudoku in which Even and Odd numbers are restricted to specific blocks.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Forget Lumosity - This version of Sudoku will give your brain just the perfect workout you need to stay sharp ! 
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > You need something fast, quick, mentally stimulating - and without the hassle of logging in to different apps.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > This version of Sudoku will give a new twist to the game by restricting where Odd and Even numbers can go. 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > Play this for 30 minutes a day for a week, and you are guaranteed to pass the next Google Interview !   
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Hit "New Game" 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I have offers from Microsoft, Google, and Facebook and all I did was play this version of Sudoku for a week!!" - John Elis
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Bring it on - hit "New Game" and beat the timer - let's see what you got !

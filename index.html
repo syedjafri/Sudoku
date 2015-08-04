@@ -11,16 +11,25 @@
 	<link type="text/css" rel="stylesheet" href="./css/reset.css">
 	<link type="text/css" rel="stylesheet" href="./css/main.css">
 	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 
-	<script type="text/javascript" src="./js/sudoku.js"></script>
+	<script src="./js/sudoku.js"></script>
+
 
 </head>
 <body>
-	<div ng-controller="sudokuController">
-		<h1>HRR7 - Let's Play Sudoku!</h2><br/>
+	<h1>HRR7 - Let's Play Sudoku!</h2><br/>
+		<div ng-controller = "timerScoreController">
+			<div><h1>You Got: {{finalTime}} left !</h1>
+				</div>
+			<div><h1>Score: {{score}}</h1></div>
+		</div>
+
+
+		<div ng-controller="sudokuController">
+
 
 			<table class="center">
 				<tr ng-repeat="row in transform" class="b_{{$index % 3 == 0}}" >
@@ -37,7 +46,7 @@
 			<div class="error" ng-show='not_valid_even'>Must be an even number there</div>
 			<div class="error" ng-show='not_valid_item'>This is not a number!</div>
 			<div>
-			<div><a href="#" class="action-button shadow animate red" ng-click="showSolution()">Show Solution</a></div>
+				<div><a href="#" class="action-button shadow animate red" ng-click="showSolution()">Show Solution</a></div>
 
 				<div><a href="#" class="action-button shadow animate green" ng-click="newGame()">New Game</a></div>
 

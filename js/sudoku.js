@@ -1,6 +1,6 @@
 /**
  * Author: Syed Jafri
- * Date: Aug 03 2015
+ * Date: Aug 04 2015
  * Project: Sudoku
  */
  (function (window, angular) {
@@ -179,37 +179,90 @@
 			}
 
 		}]);
+
+
+sudokuModule.controller(
+	'timerScoreController',  
+	function($scope, $timeout){
+
+		/***********************************************
+		 * Timer Function
+		 **********************************************/
+		
+		$scope.time=600; // Ten minutes = 600 seconds
+		var counter=0;
+
+		$scope.onTimeout = function(){
+			
+			counter++;
+			$scope.time--;
+			$scope.minutes = Math.floor($scope.time / 60);
+			$scope.seconds = $scope.time - $scope.minutes * 60;
+			$scope.hours = Math.floor($scope.time / 3600);
+			$scope.time = $scope.time - $scope.hours * 3600;
+			$scope.finalTime = str_pad_left($scope.minutes,'0',2)+':'+str_pad_left($scope.seconds,'0',2);	
+			mytimeout = $timeout($scope.onTimeout,1000);
+
+			if ($scope.time<0){
+
+			}
+			if (counter===60){
+				$scope.score-=10;
+				counter=0;
+
+			}
+		}
+		var mytimeout = $timeout($scope.onTimeout,1000);
+
+		function str_pad_left(string,pad,length) {
+			return (new Array(length+1).join(pad)+string).slice(-length);
+		}
+
+		/***********************************************
+		 * Scoring Function
+		 **********************************************/
+		 $scope.score = 100;
+
+		 function solved(){
+		 	$scope.score += 100;
+		 }
+
+	});
+
 	/**
 	 * Sudoku module controller
 	 */
 	 sudokuModule.controller(
 	 	'sudokuController',
 	 	function ($scope, solutionFactory) {
-	 			var solved = [
-			 [1, 2, 3, 4, 5, 6, 7, 8, 9],
-			 [4, 5, 6, 7, 8, 9, 1, 2, 3], 
-			 [7, 8, 9, 1, 2, 3, 4, 5, 6],
-			 [2, 3, 4, 5, 6, 7, 8, 9, 1],
-			 [5, 6, 7, 8, 9, 1, 2, 3, 4], 
-			 [8, 9, 1, 2, 3, 4, 5, 6, 7],
-			 [3, 4, 5, 6, 7, 8, 9, 1, 2],
-			 [6, 7, 8, 9, 1, 2, 3, 4, 5],
-			 [9, 1, 2, 3, 4, 5, 6, 7, 8]
-			 ];
+	 		var solved = [
+	 		[1, 2, 3, 4, 5, 6, 7, 8, 9],
+	 		[4, 5, 6, 7, 8, 9, 1, 2, 3], 
+	 		[7, 8, 9, 1, 2, 3, 4, 5, 6],
+	 		[2, 3, 4, 5, 6, 7, 8, 9, 1],
+	 		[5, 6, 7, 8, 9, 1, 2, 3, 4], 
+	 		[8, 9, 1, 2, 3, 4, 5, 6, 7],
+	 		[3, 4, 5, 6, 7, 8, 9, 1, 2],
+	 		[6, 7, 8, 9, 1, 2, 3, 4, 5],
+	 		[9, 1, 2, 3, 4, 5, 6, 7, 8]
+	 		];
+
+
+
 
 			 /* Properly shuffling rows of solved sudoku
 			  * will also give us a valid sudoku
 			  */
-			 $scope.newSudoku = shuffle(solved);
+			  $scope.newSudoku = solved //shuffle(solved);
 
 			 /* Takes a Sudoku board, and returns 1 for even
 			  * and 0 for odd values
 			  */
-			 var even_odd = evenOdd($scope.newSudoku);
+			  var even_odd = evenOdd($scope.newSudoku);
 
-			 /* Hide Random cells */
-			 $scope.sudoku = maskSudoku($scope.newSudoku);
-
+			  /* Hide Random cells */
+			  $scope.sudoku = maskSudoku($scope.newSudoku);
+			  // $scope.counter();
 
 			/**
 			 * Clone sudoku
@@ -303,7 +356,6 @@
 
 			 /********************************/
 
-
 			/***
 			 * Not valid item error
 			 * @type {boolean}
@@ -335,6 +387,7 @@
 			 }
 
 			 $scope.newGame = function(){
+
 			 	$scope.newSudoku = shuffle(solved);
 			 	even_odd = evenOdd($scope.newSudoku);
 			 	$scope.sudoku = maskSudoku($scope.newSudoku);
@@ -348,6 +401,7 @@
 			 $scope.expression = function (val) {
 			 	return val > 0 ? val : '';
 			 }
+
 
 
 			/**
@@ -391,6 +445,7 @@
 			 			!$scope.not_valid_block && !$scope.not_valid_column && !$scope.not_valid_row && !$scope.not_valid_even && !$scope.not_valid_odd
 			 			) {
 			 			if (solutionFactory.isDone($scope.sudoku, even_odd)) {
+			 				timerScoreController.solved();
 			 				alert("Congratulations you successfully completed sudoku");
 			 			}
 			 		}
@@ -400,6 +455,7 @@
 			 		$scope.not_valid_item = true;
 			 	}
 			 }
-			}
-			);
+			});
 }(window, window.angular));
+
+

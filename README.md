@@ -1,8 +1,7 @@
-angular-sudoku
+Sudoku
 ==============
-
-Sudoku - even / odd , angularjs
-
-To run on github:
-
-http://htmlpreview.github.com/?https://github.com/igorzg/angular-sudoku/blob/master/index.html
+Author: Syed Jafri
+Date: Aug 04 2015
+Version: 1.0
+Game Rules: Even-Odd Sudoku
+Stack: Built using AngularJS in 6 hours - please don't judge
