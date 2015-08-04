@@ -1,10 +1,9 @@
 var express = require('express');
-var router = express.Router();
+var port = process.env.PORT || 3000;
+var app = express.createServer();
 
-
-/* GET home page. */
-router.get('/', function(req, res) {
-    res.render('index.html', { title: 'Index' });
-});
-
-module.exports = router;
+app.get('/', function(request, response) {
+    response.sendfile(__dirname + '/index.html');
+}).configure(function() {
+    app.use('/images', express.static(__dirname + '/images'));
+}).listen(port);
