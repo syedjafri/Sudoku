@@ -2,7 +2,7 @@
   "name": "sudoku",
   "version": "1.0.0",
   "description": "Sudoku Game",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/syedjafri/Sudoku#readme",
   "dependencies": {
+    "connect": "^3.4.0",
     "express": "~3.4.8",
-    "express-partials": "~0.2.0"
+    "express-partials": "~0.2.0",
+    "serve-static": "^1.10.0"
   }
 }
